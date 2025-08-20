@@ -1,16 +1,269 @@
-function main() {
-  var keywords = AdsApp.keywords()
-    .withCondition("Status = ENABLED")
-    .get();
-
-  while (keywords.hasNext()) {
-    var keyword = keywords.next();
-    var text = keyword.getText().toLowerCase();
-
-    // Se contiver algo suspeito, pausa antes do Google meter ban
-    if (text.includes("free") || text.includes("cheap") || text.includes("guarantee")) {
-      keyword.pause();
-      Logger.log("Pausado: " + text);
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rudnik Soluções e Tecnologia — Página Única</title>
+  <meta name="description" content="Informações completas da Rudnik Soluções e Tecnologia (CNPJ 28.376.254/0001-28): serviços, contatos, endereços, social, política, FAQ e orçamento — tudo em uma única index."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.7); }
+    .dark .glass { background: rgba(10,10,10,.55); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Rudnik Soluções e Tecnologia",
+    "legalName": "RUDNIK COMERCIO VAREJISTA E ATACADISTA DE MAQUINAS AGRICOLAS LTDA",
+    "taxID": "28.376.254/0001-28",
+    "url": "https://rudniksolucoes.com.br/",
+    "email": "matriz@rudniksolucoes.com.br",
+    "telephone": "+55-47-3556-0018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Brunislau Blonkovski, 786 - Centro",
+      "addressLocality": "Santa Terezinha",
+      "addressRegion": "SC",
+      "postalCode": "89199-000",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://instagram.com/",
+      "https://facebook.com/",
+      "https://www.linkedin.com/",
+      "https://youtube.com/"
+    ]
   }
-}
+  </script>
+</head>
+<body class="bg-gradient-to-b from-zinc-50 to-white text-zinc-900 dark:from-zinc-900 dark:to-zinc-950 dark:text-zinc-100">
+  <header class="sticky top-0 z-40 border-b border-zinc-200/60 dark:border-zinc-800/60 bg-white/80 dark:bg-zinc-950/70 glass">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-2xl bg-emerald-500/90 text-white grid place-items-center font-black">R</div>
+        <div class="leading-tight">
+          <div class="font-extrabold">Rudnik Soluções e Tecnologia</div>
+          <div class="text-[12px] opacity-70">CNPJ 28.376.254/0001-28</div>
+        </div>
+      </div>
+      <nav class="ml-auto hidden md:flex gap-2">
+        <a href="#sobre" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">Sobre</a>
+        <a href="#servicos" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">Serviços</a>
+        <a href="#contatos" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">Contatos</a>
+        <a href="#enderecos" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">Endereços</a>
+        <a href="#juridico" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">Jurídico</a>
+        <a href="#faq" class="px-3 py-2 text-sm font-semibold hover:text-emerald-600">FAQ</a>
+        <a href="#orcamento" class="px-3 py-2 text-sm font-semibold text-white bg-emerald-600 rounded-xl hover:bg-emerald-500">Solicitar Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Hero -->
+    <section class="py-12 sm:py-16" id="hero">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">Energia solar & tecnologia com atendimento local em Santa Catarina</h1>
+          <p class="mt-4 text-zinc-600/90 dark:text-zinc-300/90">Projetos, instalações e soluções técnicas para residências, comércios e indústria. Transparência, suporte e atendimento especializado.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#orcamento" class="px-5 py-3 rounded-2xl bg-emerald-600 text-white font-semibold hover:bg-emerald-500">Quero orçamento</a>
+            <a href="#servicos" class="px-5 py-3 rounded-2xl border border-zinc-300 dark:border-zinc-700 font-semibold hover:border-emerald-400">Ver serviços</a>
+          </div>
+          <ul class="mt-6 grid sm:grid-cols-3 gap-3 text-sm text-zinc-600 dark:text-zinc-300">
+            <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">CNPJ ativo desde 09/08/2017</li>
+            <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">Atendimento via (47) 3556-0018</li>
+            <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">E-mail: matriz@rudniksolucoes.com.br</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl border border-zinc-200 dark:border-zinc-800 min-h-[260px] bg-[url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center"></div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Sobre a empresa</h2>
+      <p class="mt-3 text-zinc-700 dark:text-zinc-300">A <strong>Rudnik Soluções e Tecnologia</strong> (nome empresarial <em>RUDNIK COMERCIO VAREJISTA E ATACADISTA DE MAQUINAS AGRICOLAS LTDA</em>) atua com soluções de energia e tecnologia, com base em Santa Terezinha–SC. Situação cadastral <strong>ATIVA</strong> e operação com foco em atendimento consultivo e instalação técnica.</p>
+      <div class="mt-6 grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-xs uppercase tracking-wide text-zinc-500">CNPJ</div>
+          <div class="font-bold text-lg">28.376.254/0001-28</div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400">Abertura: 09/08/2017</div>
+        </div>
+        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-xs uppercase tracking-wide text-zinc-500">CNAE principal</div>
+          <div class="font-semibold">47.89-0/99 — Comércio varejista de outros produtos não especificados anteriormente</div>
+        </div>
+        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-xs uppercase tracking-wide text-zinc-500">Situação</div>
+          <div class="font-bold">ATIVA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Serviços</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-bold text-lg">Projetos e Instalação de Energia Solar</h3>
+          <p class="mt-2 text-zinc-600 dark:text-zinc-300">Dimensionamento, homologação e instalação de sistemas fotovoltaicos residenciais, comerciais e industriais.</p>
+          <button class="mt-3 px-4 py-2 rounded-xl bg-emerald-600 text-white text-sm font-semibold" data-scroll="#orcamento">Solicitar orçamento</button>
+        </div>
+        <div class="p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-bold text-lg">Consultoria & Suporte Técnico</h3>
+          <p class="mt-2 text-zinc-600 dark:text-zinc-300">Vistoria, manutenção, automação e eficiência energética.</p>
+          <button class="mt-3 px-4 py-2 rounded-xl bg-emerald-600 text-white text-sm font-semibold" data-scroll="#contatos">Falar com especialista</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contatos -->
+    <section id="contatos" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Contatos</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-sm text-zinc-500">Telefone</div>
+          <a href="tel:+554735560018" class="block mt-1 font-bold">(47) 3556-0018</a>
+        </div>
+        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-sm text-zinc-500">E-mail</div>
+          <a href="mailto:matriz@rudniksolucoes.com.br" class="block mt-1 font-bold">matriz@rudniksolucoes.com.br</a>
+        </div>
+        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <div class="text-sm text-zinc-500">Redes sociais</div>
+          <div class="mt-1 flex gap-3 text-emerald-700">
+            <a href="#" aria-label="Instagram" class="hover:underline">Instagram</a>
+            <a href="#" aria-label="Facebook" class="hover:underline">Facebook</a>
+            <a href="#" aria-label="LinkedIn" class="hover:underline">LinkedIn</a>
+            <a href="#" aria-label="YouTube" class="hover:underline">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Endereços -->
+    <section id="enderecos" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Endereços</h2>
+      <div class="mt-6 grid lg:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-bold">Sede — Santa Terezinha/SC</h3>
+          <p class="mt-1 text-zinc-700 dark:text-zinc-300">Rua Brunislau Blonkovski, 786 — Centro — CEP 89199-000 — Santa Terezinha/SC</p>
+          <div class="mt-3">
+            <a class="text-sm text-emerald-700 hover:underline" target="_blank" rel="noopener" href="https://maps.google.com/?q=Rua%20Brunislau%20Blonkovski%2C%20786%2C%20Santa%20Terezinha%20SC">Ver no mapa</a>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-bold">Outras unidades (filiais)</h3>
+          <p class="mt-1 text-zinc-700 dark:text-zinc-300">Informações públicas indicam existência de filiais em SC. Confirme disponibilidade e atendimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jurídico / CNPJ -->
+    <section id="juridico" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Informações Jurídicas</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <ul class="space-y-2 text-zinc-700 dark:text-zinc-300">
+            <li><strong>Razão Social:</strong> RUDNIK COMERCIO VAREJISTA E ATACADISTA DE MAQUINAS AGRICOLAS LTDA</li>
+            <li><strong>Nome Fantasia:</strong> Rudnik Soluções e Tecnologia</li>
+            <li><strong>CNPJ:</strong> 28.376.254/0001-28</li>
+            <li><strong>Abertura:</strong> 09/08/2017</li>
+            <li><strong>Situação Cadastral:</strong> ATIVA</li>
+            <li><strong>CNAE principal:</strong> 47.89-0/99 — Comércio varejista de outros produtos não especificados anteriormente</li>
+          </ul>
+          <p class="mt-3 text-xs text-zinc-500">*Dados compilados a partir de fontes públicas. Confirme sempre informações jurídicas diretamente na Receita Federal.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-semibold mb-2">Documentos</h3>
+          <div class="flex flex-wrap gap-2">
+            <a class="px-3 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700 text-sm" href="#" onclick="alert('Disponível sob solicitação.')">Contrato Social</a>
+            <a class="px-3 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700 text-sm" href="#" onclick="alert('Disponível sob solicitação.')">Comprovantes & Licenças</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Perguntas Frequentes</h2>
+      <div class="mt-6 space-y-4" id="faqList">
+        <details class="group border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">Atendem minha cidade?<span class="ml-3 text-zinc-500 group-open:rotate-180">▾</span></summary>
+          <p class="mt-2 text-zinc-700 dark:text-zinc-300">Projeto e instalação em Santa Catarina e regiões próximas. Consulte disponibilidade via orçamento.</p>
+        </details>
+        <details class="group border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">Como funciona o orçamento?<span class="ml-3 text-zinc-500 group-open:rotate-180">▾</span></summary>
+          <p class="mt-2 text-zinc-700 dark:text-zinc-300">Preencha o formulário abaixo com endereço, tipo de telhado, conta de energia e expectativa de geração. Um especialista retorna em até 1 dia útil.</p>
+        </details>
+        <details class="group border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">Tem garantia?<span class="ml-3 text-zinc-500 group-open:rotate-180">▾</span></summary>
+          <p class="mt-2 text-zinc-700 dark:text-zinc-300">Módulos e inversores conforme fabricante. Instalação com garantia de serviço e suporte técnico local.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Orçamento -->
+    <section id="orcamento" class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-extrabold">Solicitar Orçamento</h2>
+      <form class="mt-6 grid gap-4 max-w-2xl" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato.'); this.reset();">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-zinc-600 dark:text-zinc-300">Nome</label>
+            <input class="mt-1 w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2" required />
+          </div>
+          <div>
+            <label class="text-sm text-zinc-600 dark:text-zinc-300">E-mail</label>
+            <input type="email" class="mt-1 w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2" required />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-zinc-600 dark:text-zinc-300">Telefone</label>
+            <input type="tel" class="mt-1 w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2" />
+          </div>
+          <div>
+            <label class="text-sm text-zinc-600 dark:text-zinc-300">Cidade/UF</label>
+            <input class="mt-1 w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm text-zinc-600 dark:text-zinc-300">Mensagem</label>
+          <textarea rows="4" class="mt-1 w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2" placeholder="Conte sobre o projeto"></textarea>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="px-5 py-3 rounded-2xl bg-emerald-600 text-white font-semibold hover:bg-emerald-500" type="submit">Enviar pedido</button>
+          <a href="mailto:matriz@rudniksolucoes.com.br" class="text-emerald-700 hover:underline">ou enviar e-mail</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-10 border-t border-zinc-200 dark:border-zinc-800 text-sm">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between">
+        <p>© <span id="year"></span> Rudnik Soluções e Tecnologia — CNPJ 28.376.254/0001-28. Todos os direitos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#juridico" class="hover:underline">Dados Cadastrais</a>
+          <a href="#faq" class="hover:underline">FAQ</a>
+          <a href="#contatos" class="hover:underline">Contato</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // util
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-scroll]')?.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.querySelector(btn.getAttribute('data-scroll'));
+        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
