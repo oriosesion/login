@@ -1,0 +1,16 @@
+function main() {
+  var keywords = AdsApp.keywords()
+    .withCondition("Status = ENABLED")
+    .get();
+
+  while (keywords.hasNext()) {
+    var keyword = keywords.next();
+    var text = keyword.getText().toLowerCase();
+
+    // Se contiver algo suspeito, pausa antes do Google meter ban
+    if (text.includes("free") || text.includes("cheap") || text.includes("guarantee")) {
+      keyword.pause();
+      Logger.log("Pausado: " + text);
+    }
+  }
+}
